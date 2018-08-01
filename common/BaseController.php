@@ -204,9 +204,7 @@ abstract class BaseController
      */
     protected function encryptPassword($password)
     {
-        // TODO: Automatically generate encrypt salt
-
-        return password_hash($password, PASSWORD_BCRYPT, ['cost' => 10, 'salt' => 'foobar/123123|secret!!']);
+        return password_hash($password, PASSWORD_BCRYPT, ['cost' => 10]);
     }
 
     /**

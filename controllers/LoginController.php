@@ -46,7 +46,7 @@ class LoginController extends BaseController
         $password = $this->getConfig('security');
         $inputPassword = $request->get('password');
 
-        if (empty($inputPassword) || $this->encryptPassword($inputPassword) !== $password) {
+        if (empty($inputPassword) || !password_verify($inputPassword, $password)) {
             $session->set('error', 'Password invalid!');
 
             return $this->redirectController(LoginController::class);
