@@ -15,7 +15,7 @@ class SecurityController extends BaseController
         }
 
         if ($request->isMethod('POST')) {
-            return $this->processCreatePassword($request);
+            return $this->processSave($request);
         }
 
         $session = $request->getSession();
@@ -35,12 +35,12 @@ class SecurityController extends BaseController
      *
      * @return Response
      */
-    private function processCreatePassword(Request $request)
+    private function processSave(Request $request)
     {
         $session = $request->getSession();
         $password = $request->get('password');
         $passwordRepeat = $request->get('password-repeat');
-        $result = $this->checkPasswordRule($password, $passwordRepeat);
+        $result = $this->checkForm($password, $passwordRepeat);
 
         if ($result !== true) {
             $session->set('error', $result);
@@ -50,7 +50,7 @@ class SecurityController extends BaseController
 
         $encryptPassword = $this->encryptPassword($password);
 
-        $this->generateConfigFile('security', $encryptPassword);
+        $this->writeConfigFile('security', $encryptPassword);
 
         return $this->redirectController(LoginController::class);
     }
@@ -61,7 +61,7 @@ class SecurityController extends BaseController
      *
      * @return bool|string
      */
-    private function checkPasswordRule($password, $passwordRepeat)
+    private function checkForm($password, $passwordRepeat)
     {
         if (empty($password) || empty($passwordRepeat)) {
             return 'Password cannot be empty!';

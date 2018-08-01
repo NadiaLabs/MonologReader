@@ -100,15 +100,31 @@ abstract class BaseController
     }
 
     /**
-     * @param string $controllerClass
+     * @param string $controllerClass Controller class name
+     * @param array  $params          Url query parameters
      *
      * @return Response
      */
-    protected function redirectController($controllerClass)
+    protected function redirectController($controllerClass, array $params = [])
     {
-        $url = '/?c=' . uncamelize(str_replace('Controller', '', $controllerClass));
+        return $this->redirect($this->generateUrl($controllerClass, $params));
+    }
 
-        return $this->redirect($url);
+    /**
+     * @param string $controllerClass Controller class name
+     * @param array  $params          Url query parameters
+     *
+     * @return string
+     */
+    protected function generateUrl($controllerClass, array $params = [])
+    {
+        $url = '/?c='.uncamelize(str_replace('Controller', '', $controllerClass));
+
+        if (!empty($params)) {
+            $url .= '&' . http_build_query($params);
+        }
+
+        return $url;
     }
 
     /**
@@ -134,11 +150,12 @@ abstract class BaseController
     /**
      * Get a config data
      *
-     * @param string $name Config name
+     * @param string $name    Config name
+     * @param mixed  $default Default config data
      *
      * @return mixed
      */
-    protected function getConfig($name)
+    protected function getConfig($name, $default = null)
     {
         if (array_key_exists($name, static::$configs)) {
             return static::$configs[$name];
@@ -147,7 +164,7 @@ abstract class BaseController
         $configFilePath = __DIR__.'/../config/'.$name.'.php';
 
         if (!file_exists($configFilePath)) {
-            static::$configs[$name] = null;
+            static::$configs[$name] = $default;
         } else {
             static::$configs[$name] = require $configFilePath;
         }
@@ -177,14 +194,14 @@ abstract class BaseController
      * @param string           $name
      * @param array|string|int $data
      */
-    protected function generateConfigFile($name, $data)
+    protected function writeConfigFile($name, $data)
     {
         // Do not generate config file for Object input
         if (is_object($data)) {
             return;
         }
 
-        $dataText = (is_array($data)) ? var_export($data) : "'".$data."'";
+        $dataText = (is_array($data)) ? var_export($data, true) : "'".$data."'";
         $content =
             '<?php !defined(\'MONOLOG_READER\') && die(0);'.PHP_EOL.
             'return '.$dataText.';'.PHP_EOL
