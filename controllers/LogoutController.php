@@ -1,0 +1,22 @@
+<?php !defined('MONOLOG_READER') && die();
+
+/**
+ * Class LogoutController
+ */
+class LogoutController extends BaseController
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function run(Request $request)
+    {
+        $session = $request->getSession();
+
+        if ($this->isLoggedIn($session)) {
+            $session->remove(self::SESSION_LOGGED_IN);
+            $session->destroy();
+        }
+
+        return $this->redirectController(LoginController::class);
+    }
+}
