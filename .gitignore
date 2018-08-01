@@ -1,0 +1,3 @@
+/config/*
+!/config/.gitkeep
+/vendor
