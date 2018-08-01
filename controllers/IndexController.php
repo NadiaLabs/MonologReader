@@ -10,6 +10,10 @@ class IndexController extends BaseController
      */
     public function run(Request $request)
     {
-        return $this->render();
+        $viewData = [
+            'logConfigs' => $this->getConfig('logs'),
+        ];
+
+        return $this->render($viewData);
     }
 }
