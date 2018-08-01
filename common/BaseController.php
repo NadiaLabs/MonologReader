@@ -1,4 +1,4 @@
-<?php !defined('MONOLOG_READER') && die();
+<?php !defined('MONOLOG_READER') && die(0);
 
 /**
  * Class BaseController
@@ -186,7 +186,7 @@ abstract class BaseController
 
         $dataText = (is_array($data)) ? var_export($data) : "'".$data."'";
         $content =
-            '<?php !defined(\'MONOLOG_READER\') && die();'.PHP_EOL.
+            '<?php !defined(\'MONOLOG_READER\') && die(0);'.PHP_EOL.
             'return '.$dataText.';'.PHP_EOL
         ;
 

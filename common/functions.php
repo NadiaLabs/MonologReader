@@ -1,4 +1,4 @@
-<?php
+<?php !defined('MONOLOG_READER') && die(0);
 
 function camelize($string, $delimiter = '-')
 {
