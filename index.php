@@ -7,6 +7,7 @@ require __DIR__ . '/common/Request.php';
 require __DIR__ . '/common/Response.php';
 require __DIR__ . '/common/BaseController.php';
 require __DIR__ . '/common/PageNotFoundController.php';
+require __DIR__ . '/common/MonologReader.php';
 require __DIR__ . '/common/functions.php';
 
 $controller = new PageNotFoundController();
