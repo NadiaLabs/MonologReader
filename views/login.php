@@ -1,4 +1,4 @@
-<?php !defined('MONOLOG_READER') && die(); ?>
+<?php !defined('MONOLOG_READER') && die(0); ?>
 
 <div class="container">
     <div class="offset-4 col-4 mt-5">
