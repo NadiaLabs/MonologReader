@@ -12,11 +12,7 @@ class Request
     /**
      * @var array
      */
-    private $query;
-    /**
-     * @var array
-     */
-    private $request;
+    private $parameters;
     /**
      * @var Session
      */
@@ -28,8 +24,7 @@ class Request
     public function __construct()
     {
         $this->method = empty($_SERVER['REQUEST_METHOD']) ? 'GET' : strtoupper($_SERVER['REQUEST_METHOD']);
-        $this->query = $_GET;
-        $this->request = $_POST;
+        $this->parameters = array_merge($_GET, $_POST);
         $this->session = new Session();
     }
 
@@ -43,12 +38,8 @@ class Request
      */
     public function get($name, $default = null)
     {
-        if (isset($this->query[$name])) {
-            return $this->query[$name];
-        }
-
-        if (isset($this->request[$name])) {
-            return $this->request[$name];
+        if (isset($this->parameters[$name])) {
+            return $this->parameters[$name];
         }
 
         return $default;
