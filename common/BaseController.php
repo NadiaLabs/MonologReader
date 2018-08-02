@@ -15,11 +15,6 @@ abstract class BaseController
     const SESSION_LOGGED_IN = 'logged_in';
 
     /**
-     * @var array
-     */
-    protected static $configs = [];
-
-    /**
      * Run controller
      *
      * @param Request $request
@@ -171,19 +166,13 @@ abstract class BaseController
      */
     protected function getConfig($name, $default = null)
     {
-        if (array_key_exists($name, static::$configs)) {
-            return static::$configs[$name];
-        }
-
         $configFilePath = __DIR__.'/../config/'.$name.'.php';
 
         if (!file_exists($configFilePath)) {
-            static::$configs[$name] = $default;
-        } else {
-            static::$configs[$name] = require $configFilePath;
+            return $default;
         }
 
-        return static::$configs[$name];
+        return require $configFilePath;
     }
 
     /**
@@ -220,10 +209,13 @@ abstract class BaseController
             '<?php !defined(\'MONOLOG_READER\') && die(0);'.PHP_EOL.
             'return '.$dataText.';'.PHP_EOL
         ;
+        $filePath = __DIR__.'/../config/'.$name.'.php';
 
-        file_put_contents(__DIR__.'/../config/'.$name.'.php', $content);
+        file_put_contents($filePath, $content);
 
-        static::$configs[$name] = $data;
+        if (function_exists('opcache_invalidate')) {
+            opcache_invalidate($filePath, true);
+        }
     }
 
     /**
