@@ -32,6 +32,15 @@ class MonologReader implements \Iterator, \ArrayAccess, \Countable
             $this->file->next();
             $this->lineCount++;
         }
+
+        $this->file->seek($this->lineCount - 1);
+        $lastLine = $this->file->current();
+
+        if (empty($lastLine)) {
+            $this->lineCount--;
+        }
+
+        $this->file->rewind();
     }
 
     /**
