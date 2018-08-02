@@ -32,6 +32,7 @@ class EditLogConfigController extends BaseController
         }
 
         $viewData = [
+            'oldKey' => $this->getConfigKey($logConfig['name'], $logConfig['group']),
             'logConfig' => $logConfig,
             'title' => $title,
             'action' => $action,
@@ -51,6 +52,7 @@ class EditLogConfigController extends BaseController
     private function processSave(Request $request)
     {
         $session = $request->getSession();
+        $oldKey = $request->get('old_key');
         $name = $request->get('name');
         $group = $request->get('group');
         $path = $request->get('path');
@@ -67,7 +69,13 @@ class EditLogConfigController extends BaseController
             return $this->redirectController(EditLogConfigController::class, $newLogConfig);
         }
 
-        $logConfigs[$this->getConfigKey($name, $group)] = $newLogConfig;
+        $newKey = $this->getConfigKey($name, $group);
+
+        if ($newKey !== $oldKey) {
+            unset($logConfigs[$oldKey]);
+        }
+
+        $logConfigs[$newKey] = $newLogConfig;
 
         $this->writeConfigFile('logs', $logConfigs);
 

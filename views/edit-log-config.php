@@ -27,6 +27,8 @@
                        value="<?php echo $viewData['logConfig']['path']; ?>" />
             </div>
             <div class="form-group">
+                <input type="hidden" name="old_key" value="<?php echo $viewData['oldKey']; ?>" />
+
                 <button class="btn btn-primary" name="action" value="<?php echo $viewData['action']; ?>">
                     <?php echo ucfirst($viewData['action']); ?>
                 </button>
