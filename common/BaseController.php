@@ -184,9 +184,6 @@ abstract class BaseController
      */
     protected function hasConfig($name)
     {
-        if (array_key_exists($name, static::$configs)) {
-            return true;
-        }
 
         $data = $this->getConfig($name);
 
