@@ -1,9 +1,12 @@
-<?php !defined('MONOLOG_READER') && die(0);
-/** @var IndexController $this */
-?>
+<?php !defined('MONOLOG_READER') && die(0); ?>
 
-<?php foreach ($viewData['logConfigs'] as $key => $config) { ?>
-    <a href="<?php echo $this->generateUrl(LogsController::class, ['key' => $key]); ?>">
-        <?php echo $key; ?>
-    </a>
-<?php } ?>
+<div class="container pt-5">
+    <div class="jumbotron text-center mt-5">
+        <h1 class="display-4">
+            Welcome to MonoLogReader!
+        </h1>
+        <p class="lead">
+            Read your logs with Monolog format.
+        </p>
+    </div>
+</div>
