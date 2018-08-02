@@ -27,8 +27,8 @@ class EditLogConfigController extends BaseController
             $action = 'create';
         } else {
             $logConfig = $logConfigs[$key];
-            $title = 'Edit a new log config';
-            $action = 'edit';
+            $title = 'Edit a log config';
+            $action = 'update';
         }
 
         $viewData = [
