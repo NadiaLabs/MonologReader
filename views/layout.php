@@ -18,9 +18,8 @@
     <a class="navbar-brand" href="/">MonologReader</a>
 
     <ul class="navbar-nav mr-auto">
-
     </ul>
-
+<?php if ($viewData['isLogin']) { ?>
     <div class="form-inline">
         <div class="form-group mr-2">
             <select id="log-key" class="form-control">
@@ -34,8 +33,10 @@
         </div>
         <div class="form-group">
             <a href="/?c=edit-log-config" class="btn btn-outline-light mr-2">Add Log</a>
+            <a href="/?c=logout" class="btn btn-outline-light">Logout</a>
         </div>
     </div>
+<?php } ?>
 </nav>
 
 <?php include $viewFile; ?>

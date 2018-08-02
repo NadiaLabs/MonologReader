@@ -52,6 +52,8 @@ class SecurityController extends BaseController
 
         $this->writeConfigFile('security', $encryptPassword);
 
+        $session->set('success', 'Create password successfully! You can login MonologReader with the password now!');
+
         return $this->redirectController(LoginController::class);
     }
 

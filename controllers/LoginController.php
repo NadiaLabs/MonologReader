@@ -31,6 +31,11 @@ class LoginController extends BaseController
 
             $session->remove('error');
         }
+        if ($session->has('success')) {
+            $viewData['success'] = $session->get('success');
+
+            $session->remove('success');
+        }
 
         return $this->render($viewData);
     }
