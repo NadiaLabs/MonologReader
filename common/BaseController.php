@@ -135,6 +135,7 @@ abstract class BaseController
     protected function render(array $viewData = [])
     {
         $viewFile = __DIR__.'/../views/'.uncamelize(str_replace('Controller', '', get_class($this))).'.php';
+        $viewData = array_merge($this->getGlobalViewData(), $viewData);
 
         ob_start();
 
@@ -145,6 +146,19 @@ abstract class BaseController
         ob_end_clean();
 
         return $this->response200($content);
+    }
+
+    /**
+     * @return array
+     */
+    protected function getGlobalViewData()
+    {
+        $logConfigs = $this->getConfig('logs', []);
+
+        return [
+            'selectedLogKey' => '',
+            'logKeys' => array_keys($logConfigs),
+        ];
     }
 
     /**
