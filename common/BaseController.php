@@ -15,6 +15,11 @@ abstract class BaseController
     const SESSION_LOGGED_IN = 'logged_in';
 
     /**
+     * @var array
+     */
+    protected $globalViewData = [];
+
+    /**
      * Run controller
      *
      * @param Request $request
@@ -40,6 +45,8 @@ abstract class BaseController
 
             return $this->redirectController(LoginController::class);
         }
+
+        $this->setGlobalViewData($request);
 
         return $this->run($request);
     }
@@ -130,7 +137,7 @@ abstract class BaseController
     protected function render(array $viewData = [])
     {
         $viewFile = __DIR__.'/../views/'.uncamelize(str_replace('Controller', '', get_class($this))).'.php';
-        $viewData = array_merge($this->getGlobalViewData(), $viewData);
+        $viewData = array_merge($this->globalViewData, $viewData);
 
         ob_start();
 
@@ -144,15 +151,16 @@ abstract class BaseController
     }
 
     /**
-     * @return array
+     * @param Request $request
      */
-    protected function getGlobalViewData()
+    protected function setGlobalViewData(Request $request)
     {
         $logConfigs = $this->getConfig('logs', []);
 
-        return [
+        $this->globalViewData = [
             'selectedLogKey' => '',
             'logKeys' => array_keys($logConfigs),
+            'isLogin' => $this->isLoggedIn($request->getSession()),
         ];
     }
 
@@ -184,7 +192,6 @@ abstract class BaseController
      */
     protected function hasConfig($name)
     {
-
         $data = $this->getConfig($name);
 
         return !empty($data);
