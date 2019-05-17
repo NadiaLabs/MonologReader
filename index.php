@@ -1,7 +1,7 @@
 <?php
 
 define('MONOLOG_READER', 1);
-session_set_cookie_params(86400*30, '/', $_SERVER['HTTP_HOST']);
+session_set_cookie_params(86400*30);
 
 require __DIR__ . '/common/Session.php';
 require __DIR__ . '/common/Request.php';
