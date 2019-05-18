@@ -4,7 +4,8 @@
         "codemirror": "^5.42",
         "jquery": "^3.3",
         "js-beautify": "^1.8",
-        "popper.js": "^1.14"
+        "popper.js": "^1.14",
+        "tar": "^4.4"
     },
     "devDependencies": {
         "@symfony/webpack-encore": "^0.27",
