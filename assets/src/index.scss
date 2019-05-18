@@ -1,0 +1,10 @@
+$table-border-color: #000;
+
+@import '~bootstrap/scss/bootstrap';
+@import '~codemirror/lib/codemirror.css';
+@import '~codemirror/theme/monokai.css';
+
+.CodeMirror {
+    font-size: 1.25em;
+    height: 600px;
+}

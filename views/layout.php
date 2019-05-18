@@ -7,10 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Monolog Reader</title>
-
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-    <script type="text/javascript" src="/assets/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="/assets/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/assets/build/index.css" />
 </head>
 <body>
 
@@ -41,14 +38,7 @@
 
 <?php include $viewFile; ?>
 
-<script type="text/javascript">
-    $('#log-key').change(function() {
-        var key = $(this).val();
+<script type="text/javascript" src="/assets/build/index.js"></script>
 
-        if (key) {
-            location.href = '/?c=logs&key=' + key;
-        }
-    });
-</script>
 </body>
 </html>

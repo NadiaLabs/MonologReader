@@ -45,8 +45,8 @@
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="contextModal<?php echo $i; ?>">
-                    <div class="modal-dialog modal-lg" role="document">
+                <div class="modal fade codemirror-json" tabindex="-1" role="dialog" aria-hidden="true" id="contextModal<?php echo $i; ?>">
+                    <div class="modal-dialog modal-xl" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title">Context</h5>
@@ -55,7 +55,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <pre class="pre-scrollable"><code><?php echo json_encode($log['context'], JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT); ?></code></pre>
+                                <textarea><?php echo json_encode($log['context'], JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT); ?></textarea>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -65,8 +65,8 @@
                 </div>
 
                 <!-- Modal -->
-                <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="extraModal<?php echo $i; ?>">
-                    <div class="modal-dialog modal-lg" role="document">
+                <div class="modal fade codemirror-json" tabindex="-1" role="dialog" aria-hidden="true" id="extraModal<?php echo $i; ?>">
+                    <div class="modal-dialog modal-xl" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title">Extra</h5>
@@ -75,7 +75,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <pre class="pre-scrollable"><code><?php echo json_encode($log['extra'], JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT); ?></code></pre>
+                                <textarea><?php echo json_encode($log['extra'], JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT); ?></textarea>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

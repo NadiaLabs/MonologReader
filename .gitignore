@@ -1,3 +1,6 @@
+/assets/build/entrypoints.json
+/assets/build/manifest.json
 /config/*
 !/config/.gitkeep
+/node_modules
 /vendor

@@ -1,0 +1,20 @@
+{
+    "dependencies": {
+        "bootstrap": "^4.3",
+        "codemirror": "^5.42",
+        "jquery": "^3.3",
+        "js-beautify": "^1.8",
+        "popper.js": "^1.14"
+    },
+    "devDependencies": {
+        "@symfony/webpack-encore": "^0.27",
+        "node-sass": "^4.12",
+        "sass-loader": "^7.1",
+        "webpack-notifier": "^1.6"
+    },
+    "license": "MIT",
+    "scripts": {
+        "build": "encore production",
+        "dev": "encore dev"
+    }
+}
