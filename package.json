@@ -1,17 +1,17 @@
 {
     "dependencies": {
-        "bootstrap": "^4.3",
-        "codemirror": "^5.42",
+        "bootstrap": "^4.4.1",
+        "codemirror": "^5.51.0",
         "jquery": "^3.3",
-        "js-beautify": "^1.8",
-        "popper.js": "^1.14",
-        "tar": "^4.4"
+        "js-beautify": "^1.10.3",
+        "popper.js": "^1.16.1",
+        "tar": "^4.4.13"
     },
     "devDependencies": {
         "@symfony/webpack-encore": "^0.27",
-        "node-sass": "^4.12",
-        "sass-loader": "^7.1",
-        "webpack-notifier": "^1.6"
+        "node-sass": "^4.13.1",
+        "sass-loader": "^7.3.1",
+        "webpack-notifier": "^1.8.0"
     },
     "license": "MIT",
     "scripts": {
