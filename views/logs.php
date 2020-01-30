@@ -55,7 +55,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <textarea><?php echo json_encode($log['context'], JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT); ?></textarea>
+                                <textarea><?php echo json_encode($log['context'], JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_LINE_TERMINATORS); ?></textarea>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -75,7 +75,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <textarea><?php echo json_encode($log['extra'], JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT); ?></textarea>
+                                <textarea><?php echo json_encode($log['extra'], JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_LINE_TERMINATORS); ?></textarea>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
