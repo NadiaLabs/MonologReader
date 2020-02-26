@@ -26,12 +26,16 @@ $('.modal.codemirror-json').each(function() {
     });
 });
 
-document.getElementById('log-key').addEventListener('change', (function() {
-    let key = this.value;
+let $logKey = $('#log-key');
 
-    if (key) {
-        location.href = '/?c=logs&key=' + key;
-    } else {
-        location.href = '/';
-    }
-}));
+if ($logKey.length) {
+    $logKey.on('change', (function () {
+        let key = this.value;
+
+        if (key) {
+            location.href = '/?c=logs&key=' + key;
+        } else {
+            location.href = '/';
+        }
+    }));
+}
