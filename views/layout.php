@@ -7,12 +7,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Monolog Reader</title>
-    <link rel="stylesheet" href="/assets/build/index.css" />
+    <link rel="stylesheet" href="assets/build/index.css" />
 </head>
 <body>
 
 <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">MonologReader</a>
+    <a class="navbar-brand" href="">MonologReader</a>
 
     <ul class="navbar-nav mr-auto">
     </ul>
@@ -29,8 +29,8 @@
             </select>
         </div>
         <div class="form-group">
-            <a href="/?c=edit-log-config" class="btn btn-outline-light mr-2">Add Log</a>
-            <a href="/?c=logout" class="btn btn-outline-light">Logout</a>
+            <a href="?c=edit-log-config" class="btn btn-outline-light mr-2">Add Log</a>
+            <a href="?c=logout" class="btn btn-outline-light">Logout</a>
         </div>
     </div>
 <?php } ?>
@@ -38,7 +38,7 @@
 
 <?php include $viewFile; ?>
 
-<script type="text/javascript" src="/assets/build/index.js"></script>
+<script type="text/javascript" src="assets/build/index.js"></script>
 
 </body>
 </html>

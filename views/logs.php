@@ -3,10 +3,10 @@
 <div class="container-fluid">
     <h2 class="my-3">
         Logs for <?php echo $viewData['selectedLogKey']; ?>
-        <a href="/?c=edit-log-config&key=<?php echo urlencode($viewData['selectedLogKey']); ?>" class="btn btn-sm">
+        <a href="?c=edit-log-config&key=<?php echo urlencode($viewData['selectedLogKey']); ?>" class="btn btn-sm">
             Edit
         </a>
-        <a href="/?c=delete-log-config&key=<?php echo urlencode($viewData['selectedLogKey']); ?>" class="btn btn-sm text-danger"
+        <a href="?c=delete-log-config&key=<?php echo urlencode($viewData['selectedLogKey']); ?>" class="btn btn-sm text-danger"
            onclick="return confirm('Will delete this log config, are you sure?');">
             Delete
         </a>

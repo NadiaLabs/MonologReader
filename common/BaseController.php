@@ -120,7 +120,12 @@ abstract class BaseController
      */
     protected function generateUrl($controllerClass, array $params = [])
     {
-        $url = '/?c='.uncamelize(str_replace('Controller', '', $controllerClass));
+        $uri = empty($_SERVER['REQUEST_URI']) ? '/' : $_SERVER['REQUEST_URI'];
+        $uri = parse_url($uri);
+        $path = empty($uri['path']) ? '' : $uri['path'];
+        $path = rtrim($path, '/ ') . '/';
+
+        $url = $path . '?c=' . uncamelize(str_replace('Controller', '', $controllerClass));
 
         if (!empty($params)) {
             $url .= '&' . http_build_query($params);

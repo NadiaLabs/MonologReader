@@ -14,7 +14,7 @@
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" name="name" aria-describedby="name" required
-                       value="<?php echo $viewData['logConfig']['name']; ?>"/>
+                       value="<?php echo $viewData['logConfig']['name']; ?>" />
             </div>
             <div class="form-group">
                 <label for="group">Group</label>

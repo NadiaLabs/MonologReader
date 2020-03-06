@@ -33,9 +33,9 @@ if ($logKey.length) {
         let key = this.value;
 
         if (key) {
-            location.href = '/?c=logs&key=' + key;
+            location.href = '?c=logs&key=' + key;
         } else {
-            location.href = '/';
+            location.href = '?c=index';
         }
     }));
 }
