@@ -18,11 +18,11 @@ class MonologReader implements \Iterator, \ArrayAccess, \Countable
     /**
      * @var string
      */
-    protected $pattern = '/\[(?P<date>.*)\] (?P<logger>[\w-\s]+).(?P<level>\w+): (?P<message>[^\[\{]+) (?P<context>[\[\{].*[\]\}]) (?P<extra>[\[\{].*[\]\}])/';
+    protected $pattern = '/^\[(?P<date>[^\]]*)\] (?P<logger>[\w-\s]+).(?P<level>\w+): (?P<message>[^\[\{]+) (?P<context>[\[\{].*[\]\}]) (?P<extra>[\[\{].*[\]\}])/';
     /**
      * @var string Pattern without context and extra parts
      */
-    protected $pattern2 = '/\[(?P<date>.*)\] (?P<logger>[\w-\s]+).(?P<level>\w+): (?P<message>.*)/';
+    protected $pattern2 = '/^\[(?P<date>[^\]]*)\] (?P<logger>[\w-\s]+).(?P<level>\w+): (?P<message>.*)/';
 
     /**
      * @var array JSON open tags mapping
