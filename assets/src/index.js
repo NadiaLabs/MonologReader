@@ -25,17 +25,3 @@ $('.modal.codemirror-json').each(function() {
         $(this).find('.CodeMirror')[0].CodeMirror.refresh();
     });
 });
-
-let $logKey = $('#log-key');
-
-if ($logKey.length) {
-    $logKey.on('change', (function () {
-        let key = this.value;
-
-        if (key) {
-            location.href = '?c=logs&key=' + key;
-        } else {
-            location.href = '?c=index';
-        }
-    }));
-}
