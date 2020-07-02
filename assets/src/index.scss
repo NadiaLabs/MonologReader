@@ -8,3 +8,9 @@ $table-border-color: #000;
     font-size: 1.25em;
     height: 600px;
 }
+
+@media (min-width: 600px) {
+    .navbar-adjust-block {
+        width: 206px;
+    }
+}
