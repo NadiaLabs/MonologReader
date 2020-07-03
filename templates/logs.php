@@ -1,6 +1,7 @@
 <?php
 
 use MonologReader\Controller\DashboardController;
+use MonologReader\Controller\DownloadController;
 use MonologReader\Controller\EditLogConfigController;
 use MonologReader\Controller\LogsController;
 use MonologReader\Templating\Html;
@@ -61,8 +62,8 @@ $messageProcessor = function ($message) {
                 class="btn btn-outline-dark">
                 Edit
             </a>
-            <a href="<?php echo $request->generateUrl(DashboardController::class, ['id' => $logConfig['id']]); ?>"
-               class="btn btn-outline-success" target="_blank">
+            <a href="<?php echo $request->generateUrl(DownloadController::class, ['id' => $logConfig['id']]); ?>"
+               class="btn btn-outline-success" target="_blank" download="<?php echo basename($logConfig['path']);?>">
                 Download
             </a>
         </div>
