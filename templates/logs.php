@@ -69,13 +69,13 @@ $messageProcessor = function ($message) {
         </div>
     </div>
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" style="table-layout: fixed;">
         <thead class="thead-dark">
         <tr>
-            <th style="width: 50px;">Index</th>
+            <th style="width: 70px;">Index</th>
             <th style="width: 170px;">DateTime</th>
-            <th>Logger</th>
-            <th>Level</th>
+            <th style="width: 120px;">Logger</th>
+            <th style="width: 120px;">Level</th>
             <th>Message</th>
             <th style="width: 160px;">Extra Information</th>
         </tr>
