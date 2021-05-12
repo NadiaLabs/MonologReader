@@ -4,7 +4,7 @@
     "description": "A simple tool to read log files with Monolog format.",
     "dependencies": {
         "bootstrap": "^4.4",
-        "codemirror": "^5.52",
+        "codemirror": "^5.58",
         "jquery": "^3.3",
         "js-beautify": "^1.10",
         "popper.js": "^1.16",
